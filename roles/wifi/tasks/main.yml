@@ -24,6 +24,8 @@
   
 - name: configure hostapd
   template: src=hostapd.conf dest=/etc/hostapd/hostapd.conf
+  
+- name: configure hostapd defaults  
   template: src=hostapd.default dest=/etc/default/hostapd
   notify: restart hostapd
 
