@@ -6,6 +6,7 @@
    - wpasupplicant
    - hostapd 
    - isc-dhcp-server
+   - firmware-ralink
 
 - name: copy rt2870 wireless driver
   copy: src=rt2870.bin dest=/lib/firmware/rt2870.bin
