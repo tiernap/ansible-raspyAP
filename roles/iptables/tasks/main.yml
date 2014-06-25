@@ -1,0 +1,12 @@
+---
+- name: ensure iptables is at the latest version
+  apt: pkg=iptables state=present update_cache=yes
+
+- name: setup ip forwarding
+  sysctl: name="net.ipv4.ip_forward" value=1 reload=yes
+
+- name: copy file containing basic iptables rules
+  template: src=iptables.ipv4.nat dest=/etc/iptables.ipv4.nat owner=root group=root mode=0644 backup=yes
+
+- name: load iptables from file
+  command: iptables-restore < /etc/iptables.ipv4.nat
