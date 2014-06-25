@@ -9,4 +9,4 @@
   template: src=iptables.ipv4.nat dest=/etc/iptables.ipv4.nat owner=root group=root mode=0644 backup=yes
 
 - name: load iptables from file
-  command: iptables-restore < /etc/iptables.ipv4.nat
+  shell: iptables-restore < /etc/iptables.ipv4.nat
