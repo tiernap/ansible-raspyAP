@@ -1,0 +1,34 @@
+---
+- name: Install wireless applications 
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+   - wireless-tools 
+   - wpasupplicant
+   - hostapd 
+   - isc-dhcp-server
+
+- name: copy rt2870 wireless driver
+  copy: src=rt2870.bin dest=/lib/firmware/rt2870.bin
+  
+- name: Configure dhcpd dhcpd.conf
+  template: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf
+  notify: restart dhcpd
+  
+- name: Configure dhcpd defaults
+  template: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server
+  notify: restart dhcpd
+  
+- name: configure interfaces file
+  template: src=interfaces dest=/etc/network/interfaces
+  
+- name: bring up wlan0
+  command: ifconfig wlan0 192.168.42.1
+  
+- name: configure hostapd
+  template: src=hostapd.conf dest=/etc/hostapd/hostapd.conf
+  template: src=hostapd.default dest=/etc/default/hostapd
+  notify: restart hostapd
+
+- name: start services
+  service: name=isc-dhcp-server state=started enabled=yes
+  service: name=hostapd state=started enabled=yes
