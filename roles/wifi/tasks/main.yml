@@ -27,6 +27,8 @@
   template: src=hostapd.default dest=/etc/default/hostapd
   notify: restart hostapd
 
-- name: start services
+- name: start dhcp server
   service: name=isc-dhcp-server state=started enabled=yes
+  
+- name: start hostapd  
   service: name=hostapd state=started enabled=yes
