@@ -1,4 +1,4 @@
-ansible-raspyrouter
+ansible-raspyAP
 ===================
 
 Ansible deployment of raspberry pi based WIFI AP
