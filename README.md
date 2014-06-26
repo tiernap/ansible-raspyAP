@@ -12,4 +12,4 @@ Requirements:
 - Python (apt-get install python)
 - connected to DHCP internet connection (uplink)
 
-Once deployed, Raspberry pi will function as a wifi AP. Change SSID in groupvars/all
+Once deployed, Raspberry pi will function as a wifi AP. Change SSID in groupvars/all . No encryption/security, AP will be open.
