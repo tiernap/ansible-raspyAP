@@ -1,14 +1,14 @@
 ansible-raspyrouter
 ===================
 
-Ansible deployment of raspberry pi based wifi router
+Ansible deployment of raspberry pi based WIFI AP
 
 
 
 Requirements:
 
 - Raspbery Pi with Wheezy Minimal Image installed (http://www.linuxsystems.it/raspbian-wheezy-armhf-raspberry-pi-minimal-image/)
-- Ralink USB wifi with AP mode (tested with RT2800/2870 and RT5370 )
+- Ralink USB WIFI with AP mode (tested with RT2800/2870 and RT5370 )
 - Python (apt-get install python)
 - connected to DHCP internet connection (uplink)
 
